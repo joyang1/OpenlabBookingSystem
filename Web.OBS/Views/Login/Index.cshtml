@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../images/QQ.png" rel="icon" type="images/x-ico" />
+    <link href="../bootstrap-3.2.0/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.2.0/css/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="../bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <title></title>
+    <style type="text/css">
+        body {
+            background: url("../images/bg.jpg");
+            background-size: cover;
+        }
+        /*
+                h1 {
+                    text-align: center;
+                }
+
+                #div1 {
+                    text-align: center;
+                    width: auto;
+                }
+
+                #lblRole {
+                    font-size: 20px;
+                    font-family:'Californian FB'
+                }
+
+                #userRole {
+                    font-size: 20px;
+                    width: 100px;
+                }
+
+                #div2 {
+                    text-align: center;
+                    margin-left: 500px;
+                    margin-top: 20px;
+                    width: 335px;
+                    height: 80px;
+                    text-align: center;
+                }
+
+                #btn_Login {
+                    margin-left: 600px;
+                    width: 150px;
+                    height: 40px;
+                    font-size: x-large;
+                    color: blueviolet;
+                }
+
+                #Msg {
+                    margin-left: 560px;
+                }
+
+                #img_validate {
+                    float: right;
+                    height: 30px;
+                    width: 60px;
+                    cursor: pointer;
+                }
+
+                #div3 {
+                    width: 300px;
+                    margin-left: 48px;
+                }*/
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .form-signin {
+            max-width: 400px;
+            padding: 19px 29px 29px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+
+            .form-signin .form-signin-heading,
+            .form-signin .checkbox {
+                margin-bottom: 10px;
+            }
+
+            .form-signin input[type="text"],
+            .form-signin input[type="password"] {
+                font-size: 16px;
+                height: auto;
+                margin-bottom: 15px;
+                padding: 7px 9px;
+            }
+
+        #btn_Login {
+            margin-left: 130px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" class="form-signin">
+        <fieldset>
+            <h2>大连工业大学实验预约登陆</h2>
+            <hr />
+            <br />
+            <asp:DropDownList class="input-block-level" ID="ddlUserRole">
+                <asp:ListItem Value="role"><--请选择登入角色--></asp:ListItem>
+                <asp:ListItem Value="student">学生</asp:ListItem>
+                <asp:ListItem Value="teacher">老师</asp:ListItem>
+                <asp:ListItem Value="admin">管理员</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+
+            <input class="input-block-level" placeholder="用户名" ID="txtUsername" type="text" /><br />
+            <br />
+            <input class="input-block-level" placeholder="密码" ID="txtPasswd" type="password"><br />
+            <br />
+            <input class="input-block-level" placeholder="验证码" ID="txtCode" type="text" /><br />
+            @*<img title="看不清?" id="img_validate" src="../ashx/ValidateCode.ashx" onclick="this.src='../ashx/ValidateCode.ashx?='+Math.random" />
+                <b>看不清？请点击图片刷新验证码。</b>*@
+            <label ID="Msg" ForeColor="Red" Text="" /><br />
+            <br />
+            <input ID="btn_Login" class="btn btn-large btn-primary" Text="    登   陆    " type="submit" />
+
+        </fieldset>
+    </form>
+</body>
+</html>
+

@@ -6,40 +6,1019 @@
     <edmx:StorageModels>
     <Schema Namespace="OBSDatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="OBSDatabaseStoreContainer">
-    <EntitySet Name="Tests" EntityType="OBSDatabase.Store.Tests" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Deps" EntityType="OBSDatabase.Store.Deps" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Majors" EntityType="OBSDatabase.Store.Majors" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Grades" EntityType="OBSDatabase.Store.Grades" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Labs" EntityType="OBSDatabase.Store.Labs" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Teachers" EntityType="OBSDatabase.Store.Teachers" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Students" EntityType="OBSDatabase.Store.Students" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Courses" EntityType="OBSDatabase.Store.Courses" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="ExperimentalProjects" EntityType="OBSDatabase.Store.ExperimentalProjects" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="StartedExpriments" EntityType="OBSDatabase.Store.StartedExpriments" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Weeks1" EntityType="OBSDatabase.Store.Weeks1" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Orders" EntityType="OBSDatabase.Store.Orders" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Admins" EntityType="OBSDatabase.Store.Admins" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="Settings" EntityType="OBSDatabase.Store.Settings" store:Type="Tables" Schema="{1}" />
+    <EntitySet Name="RequiredCourses" EntityType="OBSDatabase.Store.RequiredCourses" store:Type="Tables" Schema="{1}" />
+    <AssociationSet Name="DepMajor" Association="OBSDatabase.Store.DepMajor">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="Major" EntitySet="Majors" />
+    </AssociationSet>
+    <AssociationSet Name="MajorGrade" Association="OBSDatabase.Store.MajorGrade">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="Grade" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="DepCourse" Association="OBSDatabase.Store.DepCourse">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="TeacherCourse" Association="OBSDatabase.Store.TeacherCourse">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="CourseExperimentalProject" Association="OBSDatabase.Store.CourseExperimentalProject">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+    </AssociationSet>
+    <AssociationSet Name="DepLab" Association="OBSDatabase.Store.DepLab">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="Lab" EntitySet="Labs" />
+    </AssociationSet>
+    <AssociationSet Name="DepTeacher" Association="OBSDatabase.Store.DepTeacher">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="Teacher" EntitySet="Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="DepStudent" Association="OBSDatabase.Store.DepStudent">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="MajorStudent" Association="OBSDatabase.Store.MajorStudent">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="GradeStudent" Association="OBSDatabase.Store.GradeStudent">
+      <End Role="Grade" EntitySet="Grades" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="ExperimentalProjectStartedExpriment" Association="OBSDatabase.Store.ExperimentalProjectStartedExpriment">
+      <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+      <End Role="StartedExpriment" EntitySet="StartedExpriments" />
+    </AssociationSet>
+    <AssociationSet Name="LabStartedExpriment" Association="OBSDatabase.Store.LabStartedExpriment">
+      <End Role="Lab" EntitySet="Labs" />
+      <End Role="StartedExpriment" EntitySet="StartedExpriments" />
+    </AssociationSet>
+    <AssociationSet Name="ExperimentalProjectOrder" Association="OBSDatabase.Store.ExperimentalProjectOrder">
+      <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="DepRequiredCourse" Association="OBSDatabase.Store.DepRequiredCourse">
+      <End Role="Dep" EntitySet="Deps" />
+      <End Role="RequiredCourse" EntitySet="RequiredCourses" />
+    </AssociationSet>
+    <AssociationSet Name="GradeRequiredCourse" Association="OBSDatabase.Store.GradeRequiredCourse">
+      <End Role="Grade" EntitySet="Grades" />
+      <End Role="RequiredCourse" EntitySet="RequiredCourses" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Tests">
+  <EntityType Name="Deps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Flag" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Majors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Flag" Type="bit" Nullable="false" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Flag" Type="bit" Nullable="false" />
+    <Property Name="MajorId" Type="nvarchar" Nullable="false" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="Labs">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="LimitedNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Flag" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Sex" Type="smallint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="Permission" Type="smallint" Nullable="false" />
+    <Property Name="Flag" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Sex" Type="smallint" Nullable="false" />
+    <Property Name="Birth" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="MajorId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="GradeId" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="IdNumber" Type="nvarchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Period" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="TeacherId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Quality" Type="smallint" Nullable="false" />
+    <Property Name="RequiredNum" Type="smallint" Nullable="false" />
+    <Property Name="LimitedNum" Type="smallint" Nullable="false" />
+    <Property Name="OptionalNum" Type="smallint" Nullable="false" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="ExperimentalProjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Period" Type="smallint" Nullable="false" />
+    <Property Name="MinNum" Type="int" Nullable="false" />
+    <Property Name="MaxNum" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="Requirement" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Purpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Quality" Type="smallint" Nullable="false" />
+    <Property Name="IsStartedByGrade" Type="bit" Nullable="false" />
+    <Property Name="CourseId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StartedExpriments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ExpId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Times" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Week" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Weekday" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LabId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeacherId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="Semester" Type="nvarchar" Nullable="false" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="Weeks1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartedWeek" Type="int" Nullable="false" />
+    <Property Name="EndedWeek" Type="int" Nullable="false" />
+    <Property Name="RestedWeek" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentIds" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Permission" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StartedOrderTime" Type="int" Nullable="false" />
+    <Property Name="StudentChangedTime" Type="int" Nullable="false" />
+    <Property Name="TeacherChangedTime" Type="int" Nullable="false" />
+    <Property Name="EndTime" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequiredCourses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="GradeId" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="DepId" Type="nvarchar" Nullable="false" MaxLength="2" />
+  </EntityType>
+  <Association Name="DepMajor">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="Major" Type="OBSDatabase.Store.Majors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Major">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MajorGrade">
+    <End Role="Major" Type="OBSDatabase.Store.Majors" Multiplicity="1" />
+    <End Role="Grade" Type="OBSDatabase.Store.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Major">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="MajorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepCourse">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="Course" Type="OBSDatabase.Store.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeacherCourse">
+    <End Role="Teacher" Type="OBSDatabase.Store.Teachers" Multiplicity="1" />
+    <End Role="Course" Type="OBSDatabase.Store.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseExperimentalProject">
+    <End Role="Course" Type="OBSDatabase.Store.Courses" Multiplicity="1" />
+    <End Role="ExperimentalProject" Type="OBSDatabase.Store.ExperimentalProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExperimentalProject">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepLab">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="Lab" Type="OBSDatabase.Store.Labs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lab">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepTeacher">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="Teacher" Type="OBSDatabase.Store.Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepStudent">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="Student" Type="OBSDatabase.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MajorStudent">
+    <End Role="Major" Type="OBSDatabase.Store.Majors" Multiplicity="1" />
+    <End Role="Student" Type="OBSDatabase.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Major">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="MajorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradeStudent">
+    <End Role="Grade" Type="OBSDatabase.Store.Grades" Multiplicity="1" />
+    <End Role="Student" Type="OBSDatabase.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="GradeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExperimentalProjectStartedExpriment">
+    <End Role="ExperimentalProject" Type="OBSDatabase.Store.ExperimentalProjects" Multiplicity="1" />
+    <End Role="StartedExpriment" Type="OBSDatabase.Store.StartedExpriments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExperimentalProject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StartedExpriment">
+        <PropertyRef Name="ExpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LabStartedExpriment">
+    <End Role="Lab" Type="OBSDatabase.Store.Labs" Multiplicity="1" />
+    <End Role="StartedExpriment" Type="OBSDatabase.Store.StartedExpriments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lab">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StartedExpriment">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExperimentalProjectOrder">
+    <End Role="ExperimentalProject" Type="OBSDatabase.Store.ExperimentalProjects" Multiplicity="1" />
+    <End Role="Order" Type="OBSDatabase.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExperimentalProject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ExpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepRequiredCourse">
+    <End Role="Dep" Type="OBSDatabase.Store.Deps" Multiplicity="1" />
+    <End Role="RequiredCourse" Type="OBSDatabase.Store.RequiredCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dep">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequiredCourse">
+        <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GradeRequiredCourse">
+    <End Role="Grade" Type="OBSDatabase.Store.Grades" Multiplicity="1" />
+    <End Role="RequiredCourse" Type="OBSDatabase.Store.RequiredCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequiredCourse">
+        <PropertyRef Name="GradeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OBSDatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="OBSDatabaseContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Tests" EntityType="OBSDatabase.Test" />
+          <EntitySet Name="Deps" EntityType="OBSDatabase.Dep" />
+          <EntitySet Name="Majors" EntityType="OBSDatabase.Major" />
+          <EntitySet Name="Grades" EntityType="OBSDatabase.Grade" />
+          <EntitySet Name="Labs" EntityType="OBSDatabase.Lab" />
+          <EntitySet Name="Teachers" EntityType="OBSDatabase.Teacher" />
+          <EntitySet Name="Students" EntityType="OBSDatabase.Student" />
+          <EntitySet Name="Courses" EntityType="OBSDatabase.Course" />
+          <EntitySet Name="ExperimentalProjects" EntityType="OBSDatabase.ExperimentalProject" />
+          <EntitySet Name="StartedExpriments" EntityType="OBSDatabase.StartedExpriment" />
+          <EntitySet Name="Weeks1" EntityType="OBSDatabase.Week" />
+          <EntitySet Name="Orders" EntityType="OBSDatabase.Order" />
+          <EntitySet Name="Admins" EntityType="OBSDatabase.Admin" />
+          <AssociationSet Name="DepMajor" Association="OBSDatabase.DepMajor">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="Major" EntitySet="Majors" />
+          </AssociationSet>
+          <AssociationSet Name="MajorGrade" Association="OBSDatabase.MajorGrade">
+            <End Role="Major" EntitySet="Majors" />
+            <End Role="Grade" EntitySet="Grades" />
+          </AssociationSet>
+          <AssociationSet Name="DepCourse" Association="OBSDatabase.DepCourse">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherCourse" Association="OBSDatabase.TeacherCourse">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="CourseExperimentalProject" Association="OBSDatabase.CourseExperimentalProject">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+          </AssociationSet>
+          <AssociationSet Name="DepLab" Association="OBSDatabase.DepLab">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="Lab" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="DepTeacher" Association="OBSDatabase.DepTeacher">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="DepStudent" Association="OBSDatabase.DepStudent">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="MajorStudent" Association="OBSDatabase.MajorStudent">
+            <End Role="Major" EntitySet="Majors" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="GradeStudent" Association="OBSDatabase.GradeStudent">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="ExperimentalProjectStartedExpriment" Association="OBSDatabase.ExperimentalProjectStartedExpriment">
+            <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+            <End Role="StartedExpriment" EntitySet="StartedExpriments" />
+          </AssociationSet>
+          <AssociationSet Name="LabStartedExpriment" Association="OBSDatabase.LabStartedExpriment">
+            <End Role="Lab" EntitySet="Labs" />
+            <End Role="StartedExpriment" EntitySet="StartedExpriments" />
+          </AssociationSet>
+          <AssociationSet Name="ExperimentalProjectOrder" Association="OBSDatabase.ExperimentalProjectOrder">
+            <End Role="ExperimentalProject" EntitySet="ExperimentalProjects" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Settings" EntityType="OBSDatabase.Setting" />
+          <EntitySet Name="RequiredCourses" EntityType="OBSDatabase.RequiredCourse" />
+          <AssociationSet Name="DepRequiredCourse" Association="OBSDatabase.DepRequiredCourse">
+            <End Role="Dep" EntitySet="Deps" />
+            <End Role="RequiredCourse" EntitySet="RequiredCourses" />
+          </AssociationSet>
+          <AssociationSet Name="GradeRequiredCourse" Association="OBSDatabase.GradeRequiredCourse">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="RequiredCourse" EntitySet="RequiredCourses" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Test">
+        <EntityType Name="Dep">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="2" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="255" />
+          <Property Name="Note" Type="String" Nullable="true" />
+          <Property Name="Flag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Major">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="4" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Flag" Type="Boolean" Nullable="false" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="8" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="Flag" Type="Boolean" Nullable="false" />
+          <Property Name="MajorId" Type="String" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Lab">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Course" Type="String" Nullable="false" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+          <Property Name="LimitedNumber" Type="String" Nullable="false" />
+          <Property Name="Note" Type="String" Nullable="true" />
+          <Property Name="Flag" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Sex" Type="Int16" Nullable="false" ConcurrencyMode="None" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="Flag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="10" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Sex" Type="Int16" Nullable="false" />
+          <Property Name="Birth" Type="String" Nullable="false" MaxLength="6" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+          <Property Name="MajorId" Type="String" Nullable="false" MaxLength="4" />
+          <Property Name="GradeId" Type="String" Nullable="false" MaxLength="8" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="IdNumber" Type="String" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Period" Type="Int16" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="255" />
+          <Property Name="TeacherId" Type="Guid" Nullable="false" />
+          <Property Name="Quality" Type="Int16" Nullable="false" />
+          <Property Name="RequiredNum" Type="Int16" Nullable="false" />
+          <Property Name="LimitedNum" Type="Int16" Nullable="false" />
+          <Property Name="OptionalNum" Type="Int16" Nullable="false" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="ExperimentalProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Period" Type="Int16" Nullable="false" />
+          <Property Name="MinNum" Type="Int32" Nullable="false" />
+          <Property Name="MaxNum" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="255" />
+          <Property Name="Requirement" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Purpose" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Quality" Type="Int16" Nullable="false" />
+          <Property Name="IsStartedByGrade" Type="Boolean" Nullable="false" />
+          <Property Name="CourseId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="OBSDatabase.CourseExperimentalProject" FromRole="ExperimentalProject" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="StartedExpriment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="ExpId" Type="Guid" Nullable="false" />
+          <Property Name="Times" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Week" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Weekday" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="LabId" Type="Guid" Nullable="false" />
+          <Property Name="TeacherId" Type="Guid" Nullable="true" />
+          <Property Name="Semester" Type="String" Nullable="false" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="Week">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartedWeek" Type="Int32" Nullable="false" />
+          <Property Name="EndedWeek" Type="Int32" Nullable="false" />
+          <Property Name="RestedWeek" Type="String" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentIds" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="ExpId" Type="Guid" Nullable="false" />
+          <Property Name="Time" Type="String" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Permission" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="DepMajor">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.Major" Role="Major" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Major">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MajorGrade">
+          <End Type="OBSDatabase.Major" Role="Major" Multiplicity="1" />
+          <End Type="OBSDatabase.Grade" Role="Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepCourse">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherCourse">
+          <End Type="OBSDatabase.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="OBSDatabase.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CourseExperimentalProject">
+          <End Type="OBSDatabase.Course" Role="Course" Multiplicity="1" />
+          <End Type="OBSDatabase.ExperimentalProject" Role="ExperimentalProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExperimentalProject">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepLab">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.Lab" Role="Lab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lab">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepTeacher">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepStudent">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MajorStudent">
+          <End Type="OBSDatabase.Major" Role="Major" Multiplicity="1" />
+          <End Type="OBSDatabase.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GradeStudent">
+          <End Type="OBSDatabase.Grade" Role="Grade" Multiplicity="1" />
+          <End Type="OBSDatabase.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExperimentalProjectStartedExpriment">
+          <End Type="OBSDatabase.ExperimentalProject" Role="ExperimentalProject" Multiplicity="1" />
+          <End Type="OBSDatabase.StartedExpriment" Role="StartedExpriment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExperimentalProject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StartedExpriment">
+              <PropertyRef Name="ExpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LabStartedExpriment">
+          <End Type="OBSDatabase.Lab" Role="Lab" Multiplicity="1" />
+          <End Type="OBSDatabase.StartedExpriment" Role="StartedExpriment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StartedExpriment">
+              <PropertyRef Name="LabId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExperimentalProjectOrder">
+          <End Type="OBSDatabase.ExperimentalProject" Role="ExperimentalProject" Multiplicity="1" />
+          <End Type="OBSDatabase.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExperimentalProject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ExpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="StartedOrderTime" Type="Int32" Nullable="false" />
+          <Property Name="StudentChangedTime" Type="Int32" Nullable="false" />
+          <Property Name="TeacherChangedTime" Type="Int32" Nullable="false" />
+          <Property Name="EndTime" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequiredCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="GradeId" Type="String" Nullable="false" MaxLength="8" />
+          <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <Association Name="DepRequiredCourse">
+          <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
+          <End Type="OBSDatabase.RequiredCourse" Role="RequiredCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequiredCourse">
+              <PropertyRef Name="DepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GradeRequiredCourse">
+          <End Type="OBSDatabase.Grade" Role="Grade" Multiplicity="1" />
+          <End Type="OBSDatabase.RequiredCourse" Role="RequiredCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequiredCourse">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="OBSDatabaseStoreContainer" CdmEntityContainer="OBSDatabaseContainer">
-    <EntitySetMapping Name="Tests">
-      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Test)">
-        <MappingFragment StoreEntitySet="Tests">
+    <EntitySetMapping Name="Deps">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Dep)">
+        <MappingFragment StoreEntitySet="Deps">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Majors">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Major)">
+        <MappingFragment StoreEntitySet="Majors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Grade)">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Labs">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Lab)">
+        <MappingFragment StoreEntitySet="Labs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="LimitedNumber" ColumnName="LimitedNumber" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Teacher)">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Student)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birth" ColumnName="Birth" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Course)">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="RequiredNum" ColumnName="RequiredNum" />
+          <ScalarProperty Name="LimitedNum" ColumnName="LimitedNum" />
+          <ScalarProperty Name="OptionalNum" ColumnName="OptionalNum" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExperimentalProjects">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.ExperimentalProject)">
+        <MappingFragment StoreEntitySet="ExperimentalProjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="MinNum" ColumnName="MinNum" />
+          <ScalarProperty Name="MaxNum" ColumnName="MaxNum" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Requirement" ColumnName="Requirement" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="IsStartedByGrade" ColumnName="IsStartedByGrade" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StartedExpriments">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.StartedExpriment)">
+        <MappingFragment StoreEntitySet="StartedExpriments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="Week" ColumnName="Week" />
+          <ScalarProperty Name="Weekday" ColumnName="Weekday" />
+          <ScalarProperty Name="LabId" ColumnName="LabId" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weeks1">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Week)">
+        <MappingFragment StoreEntitySet="Weeks1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartedWeek" ColumnName="StartedWeek" />
+          <ScalarProperty Name="EndedWeek" ColumnName="EndedWeek" />
+          <ScalarProperty Name="RestedWeek" ColumnName="RestedWeek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentIds" ColumnName="StudentIds" />
+          <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Admin)">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.Setting)">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartedOrderTime" ColumnName="StartedOrderTime" />
+          <ScalarProperty Name="StudentChangedTime" ColumnName="StudentChangedTime" />
+          <ScalarProperty Name="TeacherChangedTime" ColumnName="TeacherChangedTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequiredCourses">
+      <EntityTypeMapping TypeName="IsTypeOf(OBSDatabase.RequiredCourse)">
+        <MappingFragment StoreEntitySet="RequiredCourses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -65,7 +1044,35 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ec799e9b98714a0791143618072a76a3" Name="Diagram1" >
-        <EntityTypeShape EntityType="OBSDatabase.Test" Width="1.5" PointX="6.125" PointY="1.75" />
+        <EntityTypeShape EntityType="OBSDatabase.Dep" Width="1.5" PointX="0.625" PointY="0.5" />
+        <EntityTypeShape EntityType="OBSDatabase.Major" Width="1.5" PointX="2.625" PointY="0.5" />
+        <EntityTypeShape EntityType="OBSDatabase.Grade" Width="1.5" PointX="4.75" PointY="0.5" FillColor="DodgerBlue" />
+        <EntityTypeShape EntityType="OBSDatabase.Lab" Width="1.5" PointX="0.625" PointY="3" />
+        <EntityTypeShape EntityType="OBSDatabase.Teacher" Width="1.5" PointX="2.625" PointY="3" />
+        <EntityTypeShape EntityType="OBSDatabase.Student" Width="1.5" PointX="4.75" PointY="3.125" />
+        <EntityTypeShape EntityType="OBSDatabase.Course" Width="1.5" PointX="6.875" PointY="0.5" />
+        <EntityTypeShape EntityType="OBSDatabase.ExperimentalProject" Width="1.875" PointX="8.875" PointY="0.5" />
+        <EntityTypeShape EntityType="OBSDatabase.StartedExpriment" Width="1.875" PointX="6.5" PointY="3.625" />
+        <EntityTypeShape EntityType="OBSDatabase.Week" Width="1.5" PointX="9.125" PointY="3.875" />
+        <EntityTypeShape EntityType="OBSDatabase.Order" Width="1.5" PointX="0.5" PointY="6.25" />
+        <EntityTypeShape EntityType="OBSDatabase.Admin" Width="1.5" PointX="2.875" PointY="6.375" />
+        <AssociationConnector Association="OBSDatabase.DepMajor" />
+        <AssociationConnector Association="OBSDatabase.MajorGrade" />
+        <AssociationConnector Association="OBSDatabase.DepCourse" />
+        <AssociationConnector Association="OBSDatabase.TeacherCourse" />
+        <AssociationConnector Association="OBSDatabase.CourseExperimentalProject" />
+        <AssociationConnector Association="OBSDatabase.DepLab" />
+        <AssociationConnector Association="OBSDatabase.DepTeacher" />
+        <AssociationConnector Association="OBSDatabase.DepStudent" />
+        <AssociationConnector Association="OBSDatabase.MajorStudent" />
+        <AssociationConnector Association="OBSDatabase.GradeStudent" />
+        <AssociationConnector Association="OBSDatabase.ExperimentalProjectStartedExpriment" />
+        <AssociationConnector Association="OBSDatabase.LabStartedExpriment" />
+        <AssociationConnector Association="OBSDatabase.ExperimentalProjectOrder" />
+        <EntityTypeShape EntityType="OBSDatabase.Setting" Width="2" PointX="4.625" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OBSDatabase.RequiredCourse" Width="1.75" PointX="7.125" PointY="6.625" />
+        <AssociationConnector Association="OBSDatabase.DepRequiredCourse" />
+        <AssociationConnector Association="OBSDatabase.GradeRequiredCourse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
