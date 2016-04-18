@@ -75,6 +75,10 @@
       <End Role="Grade" EntitySet="Grades" />
       <End Role="RequiredCourse" EntitySet="RequiredCourses" />
     </AssociationSet>
+    <AssociationSet Name="CourseLab" Association="OBSDatabase.CourseLab">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Lab" EntitySet="Labs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Dep">
     <Key>
@@ -112,9 +116,9 @@
     </Key>
     <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
     <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="Course" Type="String" Nullable="false" />
+    <Property Name="CourseId" Type="Guid" Nullable="false" />
     <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
-    <Property Name="LimitedNumber" Type="String" Nullable="false" />
+    <Property Name="LimitedNum" Type="Int16" Nullable="false" />
     <Property Name="Note" Type="String" Nullable="true" />
     <Property Name="Flag" Type="Boolean" Nullable="false" />
   </EntityType>
@@ -390,8 +394,8 @@
     </Key>
     <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
-    <Property Name="GradeId" Type="String" Nullable="false" MaxLength="8" />
-    <Property Name="DepId" Type="String" Nullable="false" MaxLength="2" />
+    <Property Name="GradeIds" Type="String" Nullable="false" MaxLength="8" />
+    <Property Name="DepIds" Type="String" Nullable="false" MaxLength="2" />
   </EntityType>
   <Association Name="DepRequiredCourse">
     <End Type="OBSDatabase.Dep" Role="Dep" Multiplicity="1" />
@@ -401,7 +405,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="RequiredCourse">
-        <PropertyRef Name="DepId" />
+        <PropertyRef Name="DepIds" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -413,7 +417,19 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="RequiredCourse">
-        <PropertyRef Name="GradeId" />
+        <PropertyRef Name="GradeIds" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseLab">
+    <End Type="OBSDatabase.Course" Role="Course" Multiplicity="1" />
+    <End Type="OBSDatabase.Lab" Role="Lab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lab">
+        <PropertyRef Name="CourseId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

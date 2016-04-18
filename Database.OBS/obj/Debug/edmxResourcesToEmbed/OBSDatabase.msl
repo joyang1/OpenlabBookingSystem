@@ -39,9 +39,9 @@
         <MappingFragment StoreEntitySet="Labs">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
           <ScalarProperty Name="DepId" ColumnName="DepId" />
-          <ScalarProperty Name="LimitedNumber" ColumnName="LimitedNumber" />
+          <ScalarProperty Name="LimitedNum" ColumnName="LimitedNum" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Flag" ColumnName="Flag" />
         </MappingFragment>
@@ -170,8 +170,8 @@
         <MappingFragment StoreEntitySet="RequiredCourses">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="GradeId" ColumnName="GradeId" />
-          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="GradeIds" ColumnName="GradeIds" />
+          <ScalarProperty Name="DepIds" ColumnName="DepIds" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

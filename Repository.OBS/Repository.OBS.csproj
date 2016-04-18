@@ -40,8 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\CourseEntity.cs" />
     <Compile Include="Entity\DepEntity.cs" />
+    <Compile Include="Entity\ExperimentalProjectEntity.cs" />
+    <Compile Include="Entity\GradeEntity.cs" />
+    <Compile Include="Entity\LabEntity.cs" />
+    <Compile Include="Entity\MajorEntity.cs" />
+    <Compile Include="Entity\StudentEntity.cs" />
+    <Compile Include="Entity\TeacherEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.OBS\Domain.OBS.csproj">
+      <Project>{22891527-8450-41a9-8648-17a43d80f3fd}</Project>
+      <Name>Domain.OBS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
