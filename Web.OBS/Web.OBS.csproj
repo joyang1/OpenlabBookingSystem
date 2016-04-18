@@ -132,6 +132,8 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Etc\ObsServiceCastle.config" />
+    <Content Include="Etc\ObsRespositoryCastle.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,7 +144,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Etc\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>

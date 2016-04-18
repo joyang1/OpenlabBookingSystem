@@ -1,0 +1,5 @@
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service.Intention\bin\Debug\Domain.OBS.Service.Intention.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service.Intention\bin\Debug\Domain.OBS.Service.Intention.pdb
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service.Intention\obj\Debug\Domain.OBS.Service.Intention.csprojResolveAssemblyReference.cache
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service.Intention\obj\Debug\Domain.OBS.Service.Intention.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service.Intention\obj\Debug\Domain.OBS.Service.Intention.pdb

@@ -1,6 +1,5 @@
 ﻿namespace Util.OBS
 {
-    using Database;
     using Microsoft.SqlServer.Management.Common;
     using Microsoft.SqlServer.Management.Smo;
     using System;

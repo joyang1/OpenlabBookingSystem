@@ -1,4 +1,4 @@
-﻿namespace Util.OBS.Database
+﻿namespace Util.OBS
 {
     using System;
     using System.Collections.Generic;
@@ -9,12 +9,6 @@
     {
         Int32 ExecuteDatabaseScript(String sqlScript);
 
-        /// <summary>
-        ///     Warning:
-        ///     构造DataTable中某一行的时候，Field构造顺序必须与数据库Column顺序一致
-        /// </summary>
-        /// <param name="tableRecords"></param>
-        /// <param name="transactionContext"></param>
         void WriteToServer(DataTable tableRecords, TransactionContext transactionContext);
 
         void WriteToServer(DataTable tableRecords, SqlBulkCopyOptions option, TransactionContext transactionContext);

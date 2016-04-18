@@ -1,0 +1,5 @@
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\bin\Debug\Domain.OBS.Service.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\bin\Debug\Domain.OBS.Service.pdb
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.csprojResolveAssemblyReference.cache
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.pdb

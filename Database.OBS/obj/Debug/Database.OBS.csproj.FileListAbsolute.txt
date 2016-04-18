@@ -1,0 +1,10 @@
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\Database.OBS.dll.config
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\Database.OBS.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\Database.OBS.pdb
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\EntityFramework.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\EntityFramework.SqlServer.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\EntityFramework.xml
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\bin\Debug\EntityFramework.SqlServer.xml
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\obj\Debug\Database.OBS.csprojResolveAssemblyReference.cache
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\obj\Debug\Database.OBS.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\obj\Debug\Database.OBS.pdb

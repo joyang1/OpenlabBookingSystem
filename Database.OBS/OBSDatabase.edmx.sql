@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/17/2016 20:29:45
--- Generated from EDMX file: D:\VS2015\OpenlabBookingSystem\Database.OBS\OBSDatabase.edmx
+-- Date Created: 04/18/2016 17:04:09
+-- Generated from EDMX file: D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\OBSDatabase.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -56,6 +56,15 @@ GO
 IF OBJECT_ID(N'[{1}].[FK_ExperimentalProjectOrder]', 'F') IS NOT NULL
     ALTER TABLE [{1}].[Orders] DROP CONSTRAINT [FK_ExperimentalProjectOrder];
 GO
+IF OBJECT_ID(N'[{1}].[FK_DepRequiredCourse]', 'F') IS NOT NULL
+    ALTER TABLE [{1}].[RequiredCourses] DROP CONSTRAINT [FK_DepRequiredCourse];
+GO
+IF OBJECT_ID(N'[{1}].[FK_GradeRequiredCourse]', 'F') IS NOT NULL
+    ALTER TABLE [{1}].[RequiredCourses] DROP CONSTRAINT [FK_GradeRequiredCourse];
+GO
+IF OBJECT_ID(N'[{1}].[FK_CourseLab]', 'F') IS NOT NULL
+    ALTER TABLE [{1}].[Labs] DROP CONSTRAINT [FK_CourseLab];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -97,6 +106,12 @@ GO
 IF OBJECT_ID(N'[{1}].[Admins]', 'U') IS NOT NULL
     DROP TABLE [{1}].[Admins];
 GO
+IF OBJECT_ID(N'[{1}].[Settings]', 'U') IS NOT NULL
+    DROP TABLE [{1}].[Settings];
+GO
+IF OBJECT_ID(N'[{1}].[RequiredCourses]', 'U') IS NOT NULL
+    DROP TABLE [{1}].[RequiredCourses];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -136,9 +151,9 @@ GO
 CREATE TABLE [{1}].[Labs] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Course] nvarchar(max)  NOT NULL,
+    [CourseId] uniqueidentifier  NOT NULL,
     [DepId] nvarchar(2)  NOT NULL,
-    [LimitedNumber] nvarchar(max)  NOT NULL,
+    [LimitedNum] smallint  NOT NULL,
     [Note] nvarchar(max)  NULL,
     [Flag] bit  NOT NULL
 );
@@ -257,8 +272,8 @@ GO
 CREATE TABLE [{1}].[RequiredCourses] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(100)  NOT NULL,
-    [GradeId] nvarchar(8)  NOT NULL,
-    [DepId] nvarchar(2)  NOT NULL
+    [GradeIds] nvarchar(8)  NOT NULL,
+    [DepIds] nvarchar(2)  NOT NULL
 );
 GO
 
@@ -549,10 +564,10 @@ ON [{1}].[Orders]
     ([ExpId]);
 GO
 
--- Creating foreign key on [DepId] in table 'RequiredCourses'
+-- Creating foreign key on [DepIds] in table 'RequiredCourses'
 ALTER TABLE [{1}].[RequiredCourses]
 ADD CONSTRAINT [FK_DepRequiredCourse]
-    FOREIGN KEY ([DepId])
+    FOREIGN KEY ([DepIds])
     REFERENCES [{1}].[Deps]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -561,13 +576,13 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_DepRequiredCourse'
 CREATE INDEX [IX_FK_DepRequiredCourse]
 ON [{1}].[RequiredCourses]
-    ([DepId]);
+    ([DepIds]);
 GO
 
--- Creating foreign key on [GradeId] in table 'RequiredCourses'
+-- Creating foreign key on [GradeIds] in table 'RequiredCourses'
 ALTER TABLE [{1}].[RequiredCourses]
 ADD CONSTRAINT [FK_GradeRequiredCourse]
-    FOREIGN KEY ([GradeId])
+    FOREIGN KEY ([GradeIds])
     REFERENCES [{1}].[Grades]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -576,7 +591,22 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_GradeRequiredCourse'
 CREATE INDEX [IX_FK_GradeRequiredCourse]
 ON [{1}].[RequiredCourses]
-    ([GradeId]);
+    ([GradeIds]);
+GO
+
+-- Creating foreign key on [CourseId] in table 'Labs'
+ALTER TABLE [{1}].[Labs]
+ADD CONSTRAINT [FK_CourseLab]
+    FOREIGN KEY ([CourseId])
+    REFERENCES [{1}].[Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CourseLab'
+CREATE INDEX [IX_FK_CourseLab]
+ON [{1}].[Labs]
+    ([CourseId]);
 GO
 
 -- --------------------------------------------------
