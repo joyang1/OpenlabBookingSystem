@@ -40,14 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\AdminEntity.cs" />
     <Compile Include="Entity\CourseEntity.cs" />
     <Compile Include="Entity\DepEntity.cs" />
     <Compile Include="Entity\ExperimentalProjectEntity.cs" />
     <Compile Include="Entity\GradeEntity.cs" />
     <Compile Include="Entity\LabEntity.cs" />
     <Compile Include="Entity\MajorEntity.cs" />
+    <Compile Include="Entity\OrderEntity.cs" />
+    <Compile Include="Entity\RequiredCourseEntity.cs" />
+    <Compile Include="Entity\SettingEntity.cs" />
+    <Compile Include="Entity\StartedExprimentEntity.cs" />
     <Compile Include="Entity\StudentEntity.cs" />
     <Compile Include="Entity\TeacherEntity.cs" />
+    <Compile Include="Entity\WeekEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

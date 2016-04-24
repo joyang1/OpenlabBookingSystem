@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/18/2016 17:04:09
--- Generated from EDMX file: D:\WorkCopy\GitProject\OpenlabBookingSystem\Database.OBS\OBSDatabase.edmx
+-- Date Created: 04/24/2016 21:56:01
+-- Generated from EDMX file: D:\VS2015\OpenlabBookingSystem\Database.OBS\OBSDatabase.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -253,7 +253,7 @@ GO
 CREATE TABLE [{1}].[Admins] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(100)  NOT NULL,
-    [Permission] nvarchar(max)  NOT NULL,
+    [Permission] int  NOT NULL,
     [Password] nvarchar(100)  NOT NULL
 );
 GO

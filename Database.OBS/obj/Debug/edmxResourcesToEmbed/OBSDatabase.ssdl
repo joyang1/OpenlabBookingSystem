@@ -218,7 +218,7 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="Permission" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Permission" Type="int" Nullable="false" />
     <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="Settings">

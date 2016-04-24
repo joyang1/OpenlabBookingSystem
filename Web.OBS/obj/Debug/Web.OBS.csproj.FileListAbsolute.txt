@@ -94,3 +94,9 @@ D:\WorkCopy\GitProject\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Webpa
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\VS2015\OpenlabBookingSystem\Web.OBS\bin\zh-Hans\System.Web.Mvc.resources.dll

@@ -219,7 +219,7 @@
     </Key>
     <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
-    <Property Name="Permission" Type="String" Nullable="false" />
+    <Property Name="Permission" Type="Int32" Nullable="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="100" />
   </EntityType>
   <Association Name="DepMajor">

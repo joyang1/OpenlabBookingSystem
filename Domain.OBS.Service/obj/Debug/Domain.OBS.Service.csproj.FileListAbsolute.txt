@@ -3,3 +3,8 @@ D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\bin\Debug\Domain.
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.csprojResolveAssemblyReference.cache
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.dll
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.pdb
+D:\VS2015\OpenlabBookingSystem\Domain.OBS.Service\bin\Debug\Domain.OBS.Service.dll
+D:\VS2015\OpenlabBookingSystem\Domain.OBS.Service\bin\Debug\Domain.OBS.Service.pdb
+D:\VS2015\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.csprojResolveAssemblyReference.cache
+D:\VS2015\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.dll
+D:\VS2015\OpenlabBookingSystem\Domain.OBS.Service\obj\Debug\Domain.OBS.Service.pdb

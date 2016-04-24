@@ -10,3 +10,5 @@ D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS\bin\Debug\Domain.OBS.
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS\obj\Debug\Repository.OBS.csprojResolveAssemblyReference.cache
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS\obj\Debug\Repository.OBS.dll
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS\obj\Debug\Repository.OBS.pdb
+D:\VS2015\OpenlabBookingSystem\Repository.OBS\bin\Debug\Domain.OBS.dll
+D:\VS2015\OpenlabBookingSystem\Repository.OBS\bin\Debug\Domain.OBS.pdb

@@ -3,3 +3,8 @@ D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\R
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.csprojResolveAssemblyReference.cache
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.dll
 D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.pdb
+D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\Repository.OBS.Intention.dll
+D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\Repository.OBS.Intention.pdb
+D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.csprojResolveAssemblyReference.cache
+D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.dll
+D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.pdb
