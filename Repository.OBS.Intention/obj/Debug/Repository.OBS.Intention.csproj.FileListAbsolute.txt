@@ -8,3 +8,5 @@ D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\Repository.OBS
 D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.csprojResolveAssemblyReference.cache
 D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.dll
 D:\VS2015\OpenlabBookingSystem\Repository.OBS.Intention\obj\Debug\Repository.OBS.Intention.pdb
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\Domain.OBS.dll
+D:\WorkCopy\GitProject\OpenlabBookingSystem\Repository.OBS.Intention\bin\Debug\Domain.OBS.pdb
